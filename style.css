@@ -5,9 +5,8 @@
 }
 
 body {
-    background-color: #5e5e5e;
+    background-color: #050245;
     background-attachment: fixed;
-    background-image: url("background.jpg");
     background-blend-mode: multiply;
 
     color: #FFF;
