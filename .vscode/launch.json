@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-chrome",
+            "type": "msedge",
             "request": "launch",
-            "name": "Open index.html",
-            "file": "/home/michal/GitHub/FCPHelper/SpaceCoffeeCanSat.github.io/index.html"
+            "name": "open index.html",
+            "file": "${workspaceFolder}/index.html"
         }
     ]
 }
