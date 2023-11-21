@@ -1,6 +1,7 @@
 .menu-container {
     padding: 15px;
-    background-color: #9999993d;
+    background-color: #212121;
+    box-shadow: 0px 10px 5px #212121;
     position: sticky;
     top: 0;
     display: flex;
