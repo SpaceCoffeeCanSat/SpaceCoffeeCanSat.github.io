@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #0C0032;
+    background-color: #e5ddff;
     background-attachment: fixed;
     background-blend-mode: multiply;
 
@@ -29,14 +29,10 @@ body {
 
 
 .content {
-    text-align: center;
-    margin-left: 2%;
-    margin-right: 2%;
-    margin-bottom: 3%;
+    text-align: left;
+    margin: 20px;
     padding: 1rem;
-    background-color: #9999992c;
-    border: 1.5px solid #99999965;
-    border-radius: 25px;
+    color: #000;
 }
 
 .cards {
@@ -76,8 +72,4 @@ h1 {
 
 h2 {
     font-size: 27px;
-}
-
-a {
-    color: #FFF;
 }
