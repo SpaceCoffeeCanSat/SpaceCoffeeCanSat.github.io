@@ -76,3 +76,11 @@
         display: block;
     }
 }
+
+.lang-select {
+    margin-right: 35px;
+    padding: 9px;
+    background-color: #1c1c50;
+    color: #fff;
+    font-size: 20px;
+}

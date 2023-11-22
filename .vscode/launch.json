@@ -8,7 +8,7 @@
             "type": "msedge",
             "request": "launch",
             "name": "open index.html",
-            "file": "${workspaceFolder}/index.html"
+            "file": "${workspaceFolder}/template.html"
         }
     ]
 }
