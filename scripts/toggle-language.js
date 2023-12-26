@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Uruchom funkcję changeLanguage() po załadowaniu pełnej zawartości strony.
     changeLanguage();
 });
@@ -24,7 +24,7 @@ function changeLanguage() {
     });
 
     // Obsługa zmiany wartości w liście rozwijalnej
-    langSelect.addEventListener('change', function () {
+    langSelect.addEventListener('input', function () {
         const newLang = langSelect.value;
 
         // Ustaw nowy język jako atrybut lang dla tagu html.
@@ -36,30 +36,4 @@ function changeLanguage() {
             element.style.display = lang === newLang ? 'block' : 'none';
         });
     });
-
-    // Możesz dodać dodatkową obsługę, jeśli potrzebujesz śledzenia zmian w czasie rzeczywistym
-    // np. jeśli elementy z atrybutem lang są dynamicznie dodawane lub usuwane z drzewa DOM.
-    // W tym przypadku, możesz wykorzystać MutationObserver do monitorowania zmian w drzewie DOM.
-    const observer = new MutationObserver(function(mutationsList) {
-        for (const mutation of mutationsList) {
-            if (mutation.type === 'childList' || mutation.type === 'attributes') {
-                // Reaguj na zmiany w drzewie DOM
-                updateLanguage();
-            }
-        }
-    });
-
-    // Rozpocznij obserwację zmian w drzewie DOM
-    observer.observe(htmlElement, { attributes: true, childList: true, subtree: true });
-
-    // Funkcja do aktualizacji języka w przypadku zmian w drzewie DOM
-    function updateLanguage() {
-        const currentLang = htmlElement.getAttribute('lang');
-
-        // Iteruj przez elementy i ustaw ich widoczność na podstawie aktualnego języka
-        langElements.forEach(element => {
-            const lang = element.getAttribute('lang');
-            element.style.display = lang === currentLang ? 'block' : 'none';
-        });
-    }
 }
