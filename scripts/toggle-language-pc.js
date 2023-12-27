@@ -11,11 +11,22 @@ function changeLanguage() {
     // Ustawienie początkowej wartości listy rozwijalnej na podstawie aktualnego języka
     langSelect.value = htmlElement.getAttribute('lang');
 
+    var languageValue = getCookieValue("language");
+
     // Znajdź opcję odpowiadającą początkowemu językowi (np. "pl") i ustaw atrybut selected
-    const defaultOption = langSelect.querySelector(`option[value="${langSelect.value}"]`);
-    if (defaultOption) {
-        defaultOption.selected = true;
+    if (languageValue !== null) {
+        const defaultOption = langSelect.querySelector(`option[value="${languageValue}"]`);
+        if (defaultOption) {
+            defaultOption.selected = true;
+        }
     }
+    else {
+        const defaultOption = langSelect.querySelector(`option[value="${langSelect.value}"]`);
+        if (defaultOption) {
+            defaultOption.selected = true;
+        }
+    }
+
 
     // Iteruj przez elementy i ukryj te, które nie są dla domyślnego języka
     langElements.forEach(element => {
@@ -26,6 +37,8 @@ function changeLanguage() {
     // Obsługa zmiany wartości w liście rozwijalnej
     langSelect.addEventListener('input', function () {
         const newLang = langSelect.value;
+        document.cookie = `language=${newLang}; expires=Thu, 31 Dec 2024 00:00:00 UTC;`;
+
         // Ustaw nowy język jako atrybut lang dla tagu html.
         htmlElement.setAttribute('lang', newLang);
 
@@ -35,4 +48,20 @@ function changeLanguage() {
             element.style.display = lang === newLang ? 'block' : 'none';
         });
     });
+}
+
+
+function getCookieValue(cookieName) {
+    var name = cookieName + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var cookieArray = decodedCookie.split(';');
+
+    for (var i = 0; i < cookieArray.length; i++) {
+        var cookie = cookieArray[i].trim();
+        if (cookie.indexOf(name) == 0) {
+            return cookie.substring(name.length, cookie.length);
+        }
+    }
+
+    return null;
 }
