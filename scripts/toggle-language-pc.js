@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Uruchom funkcję changeLanguage() po załadowaniu pełnej zawartości strony.
     changeLanguage();
+    alert(`cookie: ${getCookieValue("language")}`)
 });
 
 function changeLanguage() {
