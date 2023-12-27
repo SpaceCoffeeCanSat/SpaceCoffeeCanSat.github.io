@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function changeLanguage() {
     const htmlElement = document.querySelector('html');
     const langElements = document.querySelectorAll('[lang]');
-    const langSelect = document.getElementById('lang-sel');
+    const langSelect = document.getElementById('lang-sel-p');
 
     // Ustawienie początkowej wartości listy rozwijalnej na podstawie aktualnego języka
     langSelect.value = htmlElement.getAttribute('lang');
@@ -26,7 +26,6 @@ function changeLanguage() {
     // Obsługa zmiany wartości w liście rozwijalnej
     langSelect.addEventListener('input', function () {
         const newLang = langSelect.value;
-        alert("DEBUG " + `nL: ${newLang} v: ${langSelect.value}`)
         // Ustaw nowy język jako atrybut lang dla tagu html.
         htmlElement.setAttribute('lang', newLang);
 

@@ -84,3 +84,8 @@
     color: #fff;
     font-size: 20px;
 }
+
+.phone-menu .lang-select {
+    margin-bottom: 10px;
+    margin-left: 2px;
+}
