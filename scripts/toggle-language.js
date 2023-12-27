@@ -26,7 +26,7 @@ function changeLanguage() {
     // Obsługa zmiany wartości w liście rozwijalnej
     langSelect.addEventListener('input', function () {
         const newLang = langSelect.value;
-
+        alert("DEBUG " + `nL: ${newLang} v: ${langSelect.value}`)
         // Ustaw nowy język jako atrybut lang dla tagu html.
         htmlElement.setAttribute('lang', newLang);
 
