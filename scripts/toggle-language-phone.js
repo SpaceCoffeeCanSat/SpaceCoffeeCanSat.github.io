@@ -38,7 +38,7 @@ function changeLanguage() {
     langSelect.addEventListener('input', function () {
         const newLang = langSelect.value;
         document.cookie = `language=${newLang}; expires=Thu, 31 Dec 2024 00:00:00 UTC;`;
-
+        alert(`DEBUG    nl: ${newLang}   cookie:${getCookieValue("language")}`)
         // Ustaw nowy język jako atrybut lang dla tagu html.
         htmlElement.setAttribute('lang', newLang);
 
