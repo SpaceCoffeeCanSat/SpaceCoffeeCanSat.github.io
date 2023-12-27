@@ -14,19 +14,10 @@ function changeLanguage() {
     var languageValue = getCookieValue("language");
 
     // Znajdź opcję odpowiadającą początkowemu językowi (np. "pl") i ustaw atrybut selected
-    if (languageValue !== null) {
-        const defaultOption = langSelect.querySelector(`option[value="${languageValue}"]`);
-        if (defaultOption) {
-            defaultOption.selected = true;
-        }
+    const defaultOption = langSelect.querySelector(`option[value="${langSelect.value}"]`);
+    if (defaultOption) {
+        defaultOption.selected = true;
     }
-    else {
-        const defaultOption = langSelect.querySelector(`option[value="${langSelect.value}"]`);
-        if (defaultOption) {
-            defaultOption.selected = true;
-        }
-    }
-
 
     // Iteruj przez elementy i ukryj te, które nie są dla domyślnego języka
     langElements.forEach(element => {
