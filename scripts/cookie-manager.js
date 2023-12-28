@@ -20,10 +20,18 @@ function setDefaultLanguage() {
 
     if(langVal !== null){
         htmlElement.setAttribute('lang', langVal);
+        langElements.forEach(element => {
+            const lang = element.getAttribute('lang');
+            element.style.display = lang === langVal ? 'block' : 'none';
+        });
     }
     else {
         htmlElement.setAttribute('lang', 'pl-PL')
         document.cookie = `language=pl-PL; expires=Thu, 31 Dec 2024 00:00:00 UTC;`;
+        langElements.forEach(element => {
+            const lang = element.getAttribute('lang');
+            element.style.display = lang === "pl-PL" ? 'block' : 'none';
+        });
     }
 }
 

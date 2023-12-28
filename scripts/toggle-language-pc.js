@@ -11,15 +11,13 @@ function changeLanguage() {
     // Ustawienie początkowej wartości listy rozwijalnej na podstawie aktualnego języka
     langSelect.value = htmlElement.getAttribute('lang');
 
-    var languageValue = getCookieValue("language");
-
     // Znajdź opcję odpowiadającą początkowemu językowi (np. "pl") i ustaw atrybut selected
         const defaultOption = langSelect.querySelector(`option[value="${langSelect.value}"]`);
         if (defaultOption) {
             defaultOption.selected = true;
         }
 
-    
+
     // Iteruj przez elementy i ukryj te, które nie są dla domyślnego języka
     langElements.forEach(element => {
         const lang = element.getAttribute('lang');
