@@ -16,6 +16,7 @@ function getCookieValue(cookieName) {
 
 function setDefaultLanguage() {
     const htmlElement = document.querySelector('html');
+    const langElements = document.querySelectorAll('[lang]');
     var langVal = getCookieValue("language")
 
     if(langVal !== null){
