@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function changeLanguage() {
     const htmlElement = document.querySelector('html');
     const langElements = document.querySelectorAll('[lang]');
-    const langSelect = document.getElementById('lang-sel-p');
+    const langSelect = document.getElementById('lang-sel-phone');
 
     // Ustawienie początkowej wartości listy rozwijalnej na podstawie aktualnego języka
     langSelect.value = htmlElement.getAttribute('lang');
