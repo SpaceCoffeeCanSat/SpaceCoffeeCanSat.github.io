@@ -26,6 +26,7 @@ function changeLanguage() {
 
     // Obsługa zmiany wartości w liście rozwijalnej
     langSelect.addEventListener('change', function () {
+        alert("DEBUG");
         const newLang = langSelect.value;
         document.cookie = `language=${newLang}; expires=Thu, 31 Dec 2024 00:00:00 UTC;`;
 
