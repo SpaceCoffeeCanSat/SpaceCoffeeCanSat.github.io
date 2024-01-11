@@ -21,7 +21,6 @@ function setDefaultLanguage() {
 
     if(langVal !== null){
         htmlElement.setAttribute('lang', langVal);
-        alert("nn")
         langElements.forEach(element => {
             const lang = element.getAttribute('lang');
             element.style.display = lang === langVal ? 'block' : 'none';
@@ -29,8 +28,7 @@ function setDefaultLanguage() {
     }
     else {
         htmlElement.setAttribute('lang', 'pl-PL')
-        alert("n")
-        document.cookie = `language=pl-PL; expires=Thu, 31 Dec 2024 00:00:00 UTC;`;
+        document.cookie = `language=pl-PL; expires=Thu, 31 Dec 2025 00:00:00 UTC;`;
         langElements.forEach(element => {
             const lang = element.getAttribute('lang');
             element.style.display = lang === "pl-PL" ? 'block' : 'none';
