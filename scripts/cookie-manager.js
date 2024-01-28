@@ -17,10 +17,12 @@ function getCookieValue(cookieName) {
 function setDefaultLanguage() {
     const htmlElement = document.querySelector('html');
     const langElements = document.querySelectorAll('[lang]');
-    var langVal = getCookieValue("language")
+    var langVal = getCookieValue("language");
 
-    if(langVal !== null){
+    if (langVal !== null) {
         htmlElement.setAttribute('lang', langVal);
+        refreshDefaultPC();
+        refreshDefaultPhone();
         langElements.forEach(element => {
             const lang = element.getAttribute('lang');
             element.style.display = lang === langVal ? 'block' : 'none';
@@ -33,6 +35,38 @@ function setDefaultLanguage() {
             const lang = element.getAttribute('lang');
             element.style.display = lang === "pl-PL" ? 'block' : 'none';
         });
+    }
+}
+
+function refreshDefaultPC() {
+    // Pobierz element select za pomocą ID
+    var selectElement = document.getElementById("lang-sel-pc");
+    console.log("debug");
+    // Ustaw domyślną opcję na podstawie wartości (np. "option2")
+    var desiredValue = getCookieValue("language");
+
+    // Znajdź opcję o danej wartości
+    for (var i = 0; i < selectElement.options.length; i++) {
+        if (selectElement.options[i].value === desiredValue) {
+            selectElement.selectedIndex = i;
+            break;
+        }
+    }
+}
+
+function refreshDefaultPhone() {
+    // Pobierz element select za pomocą ID
+    var selectElement = document.getElementById("lang-sel-phone");
+    console.log("debug");
+    // Ustaw domyślną opcję na podstawie wartości (np. "option2")
+    var desiredValue = getCookieValue("language");
+
+    // Znajdź opcję o danej wartości
+    for (var i = 0; i < selectElement.options.length; i++) {
+        if (selectElement.options[i].value === desiredValue) {
+            selectElement.selectedIndex = i;
+            break;
+        }
     }
 }
 
