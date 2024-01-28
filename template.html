@@ -16,48 +16,12 @@
 </head>
 
 <body>
-    <div class="menu-container">
-        <div class="logo">
-            <img src="Assets/logo_white.png" alt="SpaceCoffee" width="105" height="64">
-        </div>
-        <div class="menu-toggle">&#9776;</div>
-        <nav class="menu">
-            <ul>
-                <li><a lang="en-US" href="spacecoffeecansat.github.io">Home</a></li>
-                <li><a lang="pl-PL" href="spacecoffeecansat.github.io">Strona główna</a></li>
-                <li><a lang="en-US" href="#">About us</a></li>
-                <li><a lang="pl-PL" href="#">O nas</a></li>
-                <li><a lang="en-US" href="akt.html">News</a></li>
-                <li><a lang="pl-PL" href="akt.html">Aktualności</a></li>
-                <li><a lang="en-US" href="#">Contact</a></li>
-                <li><a lang="pl-PL" href="#">Kontakt</a></li>
-
-                <select class="lang-select" name="language" id="lang-sel-pc">
-                    <option value="pl-PL">Polski</option>
-                    <option value="en-US">English</option>
-                </select>
-            </ul>
-        </nav>
-        <div class="phone-menu">
-            <ul>
-                <li><a lang="en-US" href="spacecoffeecansat.github.io">Home</a></li>
-                <li><a lang="pl-PL" href="spacecoffeecansat.github.io">Strona główna</a></li>
-                <li><a lang="en-US" href="#">About us</a></li>
-                <li><a lang="pl-PL" href="#">O nas</a></li>
-                <li><a lang="en-US" href="akt.html">News</a></li>
-                <li><a lang="pl-PL" href="akt.html">Aktualności</a></li>
-                <li><a lang="en-US" href="#">Contact</a></li>
-                <li><a lang="pl-PL" href="#">Kontakt</a></li>
-
-                <select class="lang-select" name="language" id="lang-sel-phone"
-                    onchange='document.querySelector(".phone-menu").classList.toggle("active");'>
-                    <option value="pl-PL">Polski</option>
-                    <option value="en-US">English</option>
-                </select>
-            </ul>
-        </div>
-
-    </div>
+    <script>
+        fetch('/menu.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('menu-container').innerHTML = data)
+            .catch(error => alert('Błąd podczas pobierania pliku menu:', error));
+    </script>
 
     <div class="content">
         <h1 lang="pl-PL">Siema</h1>
