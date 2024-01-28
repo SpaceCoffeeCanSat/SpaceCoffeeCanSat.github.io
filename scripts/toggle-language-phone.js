@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Uruchom funkcję changeLanguage() po załadowaniu pełnej zawartości strony.
-    changeLanguage();
+    changeLanguagePhone();
 });
 
-function changeLanguage() {
+function changeLanguagePhone() {
     const htmlElement = document.querySelector('html');
     const langElements = document.querySelectorAll('[lang]');
     const langSelect = document.getElementById('lang-sel-phone');

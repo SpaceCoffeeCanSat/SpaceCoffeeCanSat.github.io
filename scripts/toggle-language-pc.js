@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Uruchom funkcję changeLanguage() po załadowaniu pełnej zawartości strony.
-    changeLanguage();
+    changeLanguagePC();
 });
 
-function changeLanguage() {
+function changeLanguagePC() {
     const htmlElement = document.querySelector('html');
     const langElements = document.querySelectorAll('[lang]');
     const langSelect = document.getElementById('lang-sel-pc');
@@ -12,10 +12,10 @@ function changeLanguage() {
     langSelect.value = htmlElement.getAttribute('lang');
 
     // Znajdź opcję odpowiadającą początkowemu językowi (np. "pl") i ustaw atrybut selected
-        const defaultOption = langSelect.querySelector(`option[value="${langSelect.value}"]`);
-        if (defaultOption) {
-            defaultOption.selected = true;
-        }
+    const defaultOption = langSelect.querySelector(`option[value="${langSelect.value}"]`);
+    if (defaultOption) {
+        defaultOption.selected = true;
+    }
 
 
     // Iteruj przez elementy i ukryj te, które nie są dla domyślnego języka
@@ -25,8 +25,8 @@ function changeLanguage() {
     });
 
     // Obsługa zmiany wartości w liście rozwijalnej
+    // Change the event listener from 'click' to 'change'
     langSelect.addEventListener('change', function () {
-        alert("DEBUG");
         const newLang = langSelect.value;
         document.cookie = `language=${newLang}; expires=Thu, 31 Dec 2024 00:00:00 UTC;`;
 
@@ -39,4 +39,5 @@ function changeLanguage() {
             element.style.display = lang === newLang ? 'block' : 'none';
         });
     });
+
 }
