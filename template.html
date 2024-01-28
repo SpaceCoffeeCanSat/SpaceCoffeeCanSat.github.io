@@ -7,21 +7,17 @@
     <title>Template page</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="menu-style.css" />
-
-    <script src="scripts/responsive-menu.js"></script>
-    <script src="scripts/toggle-language-pc.js"></script>
-    <script src="scripts/toggle-language-phone.js"></script>
-    <script src="scripts/cookie-manager.js"></script>
-
 </head>
 
 <body>
-    <script>
-        fetch('/menu.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('menu-container').innerHTML = data)
-            .catch(error => alert('Błąd podczas pobierania pliku menu:', error));
-    </script>
+    <div id="menu-container">
+        <script>
+            fetch('/menu.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('menu-container').innerHTML = data)
+                .catch(error => console.log('Błąd podczas pobierania pliku menu:', error));
+        </script>
+    </div>
 
     <div class="content">
         <h1 lang="pl-PL">Siema</h1>
