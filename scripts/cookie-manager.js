@@ -68,6 +68,4 @@ function refreshDefaultPhone() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    setDefaultLanguage();
-});
+setDefaultLanguage();

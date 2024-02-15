@@ -1,7 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Uruchom funkcję changeLanguage() po załadowaniu pełnej zawartości strony.
-    changeLanguagePhone();
-});
+changeLanguagePhone();
 
 function changeLanguagePhone() {
     const htmlElement = document.querySelector('html');
@@ -12,10 +9,10 @@ function changeLanguagePhone() {
     langSelect.value = htmlElement.getAttribute('lang');
 
     // Znajdź opcję odpowiadającą początkowemu językowi (np. "pl") i ustaw atrybut selected
-        const defaultOption = langSelect.querySelector(`option[value="${langSelect.value}"]`);
-        if (defaultOption) {
-            defaultOption.selected = true;
-        }
+    const defaultOption = langSelect.querySelector(`option[value="${langSelect.value}"]`);
+    if (defaultOption) {
+        defaultOption.selected = true;
+    }
 
 
     // Iteruj przez elementy i ukryj te, które nie są dla domyślnego języka

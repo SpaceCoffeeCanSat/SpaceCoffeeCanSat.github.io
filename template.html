@@ -7,17 +7,39 @@
     <title>Template page</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="menu-style.css" />
+
+    <script async type="module">
+        // Pobierz treść menu za pomocą fetch
+        const response = await fetch('/menu.html')
+        const data = await response.text()
+
+        // Wstaw treść menu do elementu o id "menu-container"
+        document.getElementById('menu-container').innerHTML = data;
+
+        // Po wstawieniu treści menu, utwórz dynamicznie elementy <script> i dołącz skrypty
+        var scriptResponsiveMenu = document.createElement('script');
+        scriptResponsiveMenu.src = 'scripts/responsive-menu.js';
+        document.head.appendChild(scriptResponsiveMenu);
+
+        // Dodaj inne skrypty w ten sam sposób, jeśli są inne skrypty do załadowania
+        const scriptToggleLanguagePc = document.createElement('script');
+        scriptToggleLanguagePc.src = 'scripts/toggle-language-pc.js';
+        document.head.appendChild(scriptToggleLanguagePc);
+
+        const scriptToggleLanguagePhone = document.createElement('script');
+        scriptToggleLanguagePhone.src = 'scripts/toggle-language-phone.js';
+        document.head.appendChild(scriptToggleLanguagePhone);
+
+        const scriptCookieManager = document.createElement('script');
+        scriptCookieManager.src = 'scripts/cookie-manager.js';
+        document.head.appendChild(scriptCookieManager);
+
+        // Powtarzaj to dla każdego skryptu, który musi być załadowany
+    </script>
 </head>
 
 <body>
-    <div id="menu-container">
-        <script>
-            fetch('/menu.html')
-                .then(response => response.text())
-                .then(data => document.getElementById('menu-container').innerHTML = data)
-                .catch(error => console.log('Błąd podczas pobierania pliku menu:', error));
-        </script>
-    </div>
+    <div id="menu-container"></div>
 
     <div class="content">
         <h1 lang="pl-PL">Siema</h1>
@@ -27,6 +49,8 @@
     <div class="content">
         <button onclick="alert(`cookie: ${getCookieValue('language')}`)">Debug</button>
     </div>
+
+
 </body>
 
 </html>

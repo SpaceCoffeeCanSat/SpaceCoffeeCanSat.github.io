@@ -1,7 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Uruchom funkcję changeLanguage() po załadowaniu pełnej zawartości strony.
-    changeLanguagePC();
-});
+changeLanguagePC();
 
 function changeLanguagePC() {
     const htmlElement = document.querySelector('html');
