@@ -41,7 +41,6 @@ function setDefaultLanguage() {
 function refreshDefaultPC() {
     // Pobierz element select za pomocą ID
     var selectElement = document.getElementById("lang-sel-pc");
-    console.log("debug");
     // Ustaw domyślną opcję na podstawie wartości (np. "option2")
     var desiredValue = getCookieValue("language");
 
@@ -57,7 +56,6 @@ function refreshDefaultPC() {
 function refreshDefaultPhone() {
     // Pobierz element select za pomocą ID
     var selectElement = document.getElementById("lang-sel-phone");
-    console.log("debug");
     // Ustaw domyślną opcję na podstawie wartości (np. "option2")
     var desiredValue = getCookieValue("language");
 
@@ -70,6 +68,4 @@ function refreshDefaultPhone() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    setDefaultLanguage();
-});
+setDefaultLanguage();
