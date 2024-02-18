@@ -1,29 +1,28 @@
 async function includeMenu() {
-    const response = await fetch('/menu.html')
-        const data = await response.text()
+    const response = await fetch('/menu.html');
+    const data = await response.text();
 
-        // Wstaw treść menu do elementu o id "menu-container"
-        document.getElementById('menu-container').innerHTML = data;
+    // Wstaw treść menu do elementu o id "menu-container"
+    document.getElementById('menu-container').innerHTML = data;
 
-        // Po wstawieniu treści menu, utwórz dynamicznie elementy <script> i dołącz skrypty
-        var scriptResponsiveMenu = document.createElement('script');
-        scriptResponsiveMenu.src = 'scripts/responsive-menu.js';
-        document.head.appendChild(scriptResponsiveMenu);
+    // Funkcja pomocnicza do dynamicznego dodawania skryptów z atrybutem defer
+    function addScriptWithDefer(src) {
+        const script = document.createElement('script');
+        script.src = src;
+        script.defer = true;
+        document.head.appendChild(script);
+        return new Promise((resolve) => {
+            script.onload = resolve;
+        });
+    }
 
-        // Dodaj inne skrypty w ten sam sposób, jeśli są inne skrypty do załadowania
-        const scriptToggleLanguagePc = document.createElement('script');
-        scriptToggleLanguagePc.src = 'scripts/toggle-language-pc.js';
-        document.head.appendChild(scriptToggleLanguagePc);
+    // Dodaj skrypty z atrybutem defer
+    await addScriptWithDefer('scripts/responsive-menu.js');
+    await addScriptWithDefer('scripts/toggle-language-pc.js');
+    await addScriptWithDefer('scripts/toggle-language-phone.js');
+    await addScriptWithDefer('scripts/cookie-manager.js');
 
-        const scriptToggleLanguagePhone = document.createElement('script');
-        scriptToggleLanguagePhone.src = 'scripts/toggle-language-phone.js';
-        document.head.appendChild(scriptToggleLanguagePhone);
-
-        const scriptCookieManager = document.createElement('script');
-        scriptCookieManager.src = 'scripts/cookie-manager.js';
-        document.head.appendChild(scriptCookieManager);
-
-        // Powtarzaj to dla każdego skryptu, który musi być załadowany
+    // Tutaj umieść kod, który ma być wykonany po załadowaniu wszystkich skryptów
 }
 
 includeMenu();
